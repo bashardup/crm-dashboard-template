@@ -7,7 +7,8 @@
 
 @theme inline {
     --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-sans: 'dubai', sans-serif;
+    --font-mono: 'bukra', monospace;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,6 +47,188 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+
+
+     --color-gray-10: rgba(249, 249, 249, 1);
+  --color-gray-25: rgba(244, 244, 244, 1);
+  --color-gray-50: rgba(235, 235, 236, 1);
+  --color-gray-100: rgba(216, 216, 216, 1);
+  --color-gray-200: rgba(196, 196, 197, 1);
+  --color-gray-300: rgba(181, 182, 183, 1);
+  --color-gray-400: rgba(137, 137, 139, 1);
+  --color-gray-500: rgba(107, 108, 110, 1);
+  --color-gray-600: rgba(75, 76, 77, 1);
+  --color-gray-700: rgba(54, 54, 55, 1);
+  --color-gray-800: rgba(33, 33, 33, 1);
+  --color-gray-900: rgba(18, 18, 18, 1);
+  --color-primary-10: rgba(245, 255, 251, 1);
+  --color-primary-25: rgba(231, 246, 241, 1);
+  --color-primary-50: rgba(207, 236, 226, 1);
+  --color-primary-100: rgba(182, 227, 212, 1);
+  --color-primary-200: rgba(134, 208, 183, 1);
+  --color-primary-300: rgba(86, 189, 154, 1);
+  --color-primary-400: rgba(13, 160, 110, 1);
+  --color-primary-500: rgba(0, 135, 85, 1);
+  --color-primary-600: rgba(0, 108, 68, 1);
+  --color-primary-700: rgba(0, 74, 46, 1);
+  --color-primary-800: rgba(0, 48, 31, 1);
+  --color-primary-900: rgba(0, 27, 17, 1);
+  --color-secondary-10: rgba(242, 247, 245, 1);
+  --color-secondary-25: rgba(230, 238, 236, 1);
+  --color-secondary-50: rgba(204, 222, 218, 1);
+  --color-secondary-100: rgba(179, 205, 199, 1);
+  --color-secondary-200: rgba(153, 188, 180, 1);
+  --color-secondary-300: rgba(102, 155, 143, 1);
+  --color-secondary-400: rgba(51, 121, 105, 1);
+  --color-secondary-500: rgba(0, 88, 68, 1);
+  --color-secondary-600: rgba(0, 70, 54, 1);
+  --color-secondary-700: rgba(0, 53, 41, 1);
+  --color-secondary-800: rgba(0, 36, 28, 1);
+  --color-secondary-900: rgba(0, 26, 20, 1);
+  --color-error-10: rgba(254, 247, 246, 1);
+  --color-error-25: rgba(251, 239, 238, 1);
+  --color-error-50: rgba(247, 213, 210, 1);
+  --color-error-100: rgba(244, 192, 188, 1);
+  --color-error-200: rgba(240, 171, 166, 1);
+  --color-error-300: rgba(232, 129, 121, 1);
+  --color-error-400: rgba(225, 87, 77, 1);
+  --color-error-500: rgba(217, 45, 32, 1);
+  --color-error-600: rgba(174, 36, 26, 1);
+  --color-error-700: rgba(130, 27, 19, 1);
+  --color-error-800: rgba(103, 21, 15, 1);
+  --color-error-900: rgba(65, 14, 10, 1);
+  --color-warning-10: rgba(255, 251, 245, 1);
+  --color-warning-25: rgba(255, 246, 227, 1);
+  --color-warning-50: rgba(255, 234, 186, 1);
+  --color-warning-100: rgba(255, 221, 140, 1);
+  --color-warning-200: rgba(255, 201, 70, 1);
+  --color-warning-300: rgba(255, 188, 25, 1);
+  --color-warning-400: rgba(240, 157, 13, 1);
+  --color-warning-500: rgba(198, 115, 6, 1);
+  --color-warning-600: rgba(148, 86, 5, 1);
+  --color-warning-700: rgba(99, 57, 3, 1);
+  --color-warning-800: rgba(68, 40, 3, 1);
+  --color-warning-900: rgba(25, 14, 1, 1);
+  --color-success-10: rgba(246, 253, 250, 1);
+  --color-success-25: rgba(233, 250, 242, 1);
+  --color-success-50: rgba(200, 254, 227, 1);
+  --color-success-100: rgba(147, 232, 190, 1);
+  --color-success-200: rgba(103, 222, 163, 1);
+  --color-success-300: rgba(38, 208, 124, 1);
+  --color-success-400: rgba(30, 166, 99, 1);
+  --color-success-500: rgba(25, 132, 78, 1);
+  --color-success-600: rgba(19, 104, 62, 1);
+  --color-success-700: rgba(15, 83, 50, 1);
+  --color-success-800: rgba(11, 62, 37, 1);
+  --color-success-900: rgba(8, 42, 25, 1);
+  --color-informative-10: rgba(245, 249, 254, 1);
+  --color-informative-25: rgba(232, 241, 253, 1);
+  --color-informative-50: rgba(208, 226, 252, 1);
+  --color-informative-100: rgba(185, 212, 250, 1);
+  --color-informative-200: rgba(161, 198, 249, 1);
+  --color-informative-300: rgba(115, 169, 245, 1);
+  --color-informative-400: rgba(68, 141, 242, 1);
+  --color-informative-500: rgba(21, 112, 239, 1);
+  --color-informative-600: rgba(17, 90, 191, 1);
+  --color-informative-700: rgba(13, 67, 143, 1);
+  --color-informative-800: rgba(8, 45, 96, 1);
+  --color-informative-900: rgba(6, 34, 72, 1);
+  --color-blue-gray-10: rgba(252, 251, 254, 1);
+  --color-blue-gray-25: rgba(241, 242, 248, 1);
+  --color-blue-gray-50: rgba(227, 229, 241, 1);
+  --color-blue-gray-100: rgba(212, 215, 233, 1);
+  --color-blue-gray-200: rgba(184, 189, 219, 1);
+  --color-blue-gray-300: rgba(149, 157, 202, 1);
+  --color-blue-gray-400: rgba(113, 124, 184, 1);
+  --color-blue-gray-500: rgba(78, 91, 166, 1);
+  --color-blue-gray-600: rgba(62, 73, 133, 1);
+  --color-blue-gray-700: rgba(47, 55, 100, 1);
+  --color-blue-gray-800: rgba(31, 36, 66, 1);
+  --color-blue-gray-900: rgba(23, 27, 50, 1);
+  --color-turquoise-10: rgba(242, 253, 254, 1);
+  --color-turquoise-25: rgba(232, 251, 253, 1);
+  --color-turquoise-50: rgba(198, 246, 255, 1);
+  --color-turquoise-100: rgba(158, 238, 247, 1);
+  --color-turquoise-200: rgba(131, 233, 244, 1);
+  --color-turquoise-300: rgba(33, 216, 236, 1);
+  --color-turquoise-400: rgba(48, 176, 199, 1);
+  --color-turquoise-500: rgba(13, 139, 152, 1);
+  --color-turquoise-600: rgba(11, 113, 124, 1);
+  --color-turquoise-700: rgba(8, 88, 97, 1);
+  --color-turquoise-800: rgba(6, 63, 69, 1);
+  --color-turquoise-900: rgba(4, 38, 41, 1);
+  --color-purple-10: rgba(247, 245, 255, 1);
+  --color-purple-25: rgba(242, 239, 254, 1);
+  --color-purple-50: rgba(228, 222, 254, 1);
+  --color-purple-100: rgba(215, 206, 253, 1);
+  --color-purple-200: rgba(202, 189, 252, 1);
+  --color-purple-300: rgba(175, 156, 251, 1);
+  --color-purple-400: rgba(149, 123, 249, 1);
+  --color-purple-500: rgba(122, 90, 248, 1);
+  --color-purple-600: rgba(98, 72, 198, 1);
+  --color-purple-700: rgba(73, 54, 149, 1);
+  --color-purple-800: rgba(49, 36, 99, 1);
+  --color-purple-900: rgba(37, 27, 74, 1);
+  --color-pink-10: rgba(253, 247, 250, 1);
+  --color-pink-25: rgba(249, 232, 241, 1);
+  --color-pink-50: rgba(243, 208, 227, 1);
+  --color-pink-100: rgba(236, 185, 213, 1);
+  --color-pink-200: rgba(230, 161, 199, 1);
+  --color-pink-300: rgba(218, 115, 172, 1);
+  --color-pink-400: rgba(212, 91, 158, 1);
+  --color-pink-500: rgba(199, 44, 130, 1);
+  --color-pink-600: rgba(174, 19, 104, 1);
+  --color-pink-700: rgba(135, 15, 81, 1);
+  --color-pink-800: rgba(97, 11, 58, 1);
+  --color-pink-900: rgba(58, 6, 35, 1);
+  --color-rose-10: rgba(253, 247, 250, 1);
+  --color-rose-25: rgba(252, 232, 238, 1);
+  --color-rose-50: rgba(249, 209, 221, 1);
+  --color-rose-100: rgba(247, 187, 204, 1);
+  --color-rose-200: rgba(244, 164, 187, 1);
+  --color-rose-300: rgba(238, 118, 152, 1);
+  --color-rose-400: rgba(233, 73, 118, 1);
+  --color-rose-500: rgba(227, 27, 84, 1);
+  --color-rose-600: rgba(182, 22, 67, 1);
+  --color-rose-700: rgba(136, 16, 50, 1);
+  --color-rose-800: rgba(91, 11, 34, 1);
+  --color-rose-900: rgba(68, 8, 25, 1);
+  --color-rose-10: rgba(255, 249, 245, 1);
+  --color-rose-25: rgba(251, 238, 230, 1);
+  --color-rose-50: rgba(248, 221, 204, 1);
+  --color-rose-100: rgba(255, 199, 153, 1);
+  --color-rose-200: rgba(241, 157, 102, 1);
+  --color-rose-300: rgba(237, 124, 51, 1);
+  --color-rose-400: rgba(234, 107, 25, 1);
+  --color-rose-500: rgba(197, 77, 1, 1);
+  --color-rose-600: rgba(153, 60, 1, 1);
+  --color-rose-700: rgba(110, 43, 1, 1);
+  --color-rose-800: rgba(88, 34, 0, 1);
+  --color-rose-900: rgba(66, 26, 0, 1);
+  --color-khaki-10: rgba(251, 249, 247, 1);
+  --color-khaki-25: rgba(239, 232, 222, 1);
+  --color-khaki-50: rgba(231, 220, 206, 1);
+  --color-khaki-100: rgba(213, 200, 178, 1);
+  --color-khaki-200: rgba(215, 197, 173, 1);
+  --color-khaki-300: rgba(195, 176, 145, 1);
+  --color-khaki-400: rgba(154, 127, 84, 1);
+  --color-khaki-500: rgba(143, 113, 75, 1);
+  --color-khaki-600: rgba(124, 98, 65, 1);
+  --color-khaki-700: rgba(87, 69, 46, 1);
+  --color-khaki-800: rgba(70, 56, 37, 1);
+  --color-khaki-900: rgba(43, 35, 23, 1);
+  --color-sps-10: rgba(255, 245, 246, 1);
+  --color-sps-25: rgba(252, 230, 231, 1);
+  --color-sps-50: rgba(249, 205, 208, 1);
+  --color-sps-100: rgba(247, 180, 184, 1);
+  --color-sps-200: rgba(241, 131, 137, 1);
+  --color-sps-300: rgba(235, 81, 90, 1);
+  --color-sps-400: rgba(233, 56, 66, 1);
+  --color-sps-500: rgba(227, 6, 19, 1);
+  --color-sps-600: rgba(182, 5, 15, 1);
+  --color-sps-700: rgba(136, 4, 11, 1);
+  --color-sps-800: rgba(91, 2, 8, 1);
+  --color-sps-900: rgba(45, 1, 4, 1);
 }
 
 :root {
@@ -55,8 +238,8 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: var(--color-primary-500);
+    --primary-foreground: var(--color-primary-100);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
@@ -81,6 +264,9 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+
+
 }
 
 .dark {
@@ -128,3 +314,111 @@
     @apply font-sans;
     }
 }
+
+
+@font-face {
+  font-family: "bukra";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/29ltbukralight.eot");
+  src: url("/fonts/29ltbukralight.eot") format("embedded-opentype"),
+    url("/fonts/29ltbukralight.woff2") format("woff2"),
+    url("/fonts/29ltbukralight.woff") format("woff"),
+    url("/fonts/29ltbukralight.ttf") format("truetype"),
+    url("/fonts/29ltbukralight.svg#29ltbukralight") format("svg");
+}
+
+@font-face {
+  font-family: "bukra";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/29ltbukraregular.eot");
+  src: url("/fonts/29ltbukraregular.eot") format("embedded-opentype"),
+    url("/fonts/29ltbukraregular.woff2") format("woff2"),
+    url("/fonts/29ltbukraregular.woff") format("woff"),
+    url("/fonts/29ltbukraregular.ttf") format("truetype"),
+    url("/fonts/29ltbukraregular.svg#29ltbukraregular") format("svg");
+}
+
+@font-face {
+  font-family: "bukra";
+  font-weight: 900;
+  src: url("/fonts/29ltbukrabolditalic.eot");
+  src: url("/fonts/29ltbukrabolditalic.eot") format("embedded-opentype"),
+    url("/fonts/29ltbukrabolditalic.woff2") format("woff2"),
+    url("/fonts/29ltbukrabolditalic.woff") format("woff"),
+    url("/fonts/29ltbukrabolditalic.ttf") format("truetype"),
+    url("/fonts/29ltbukrabolditalic.svg#29ltbukrabolditalic") format("svg");
+}
+
+@font-face {
+  font-family: "bukra";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/fonts/29ltbukrabold.eot");
+  src: url("/fonts/29ltbukrabold.eot") format("embedded-opentype"),
+    url("/fonts/29ltbukrabold.woff2") format("woff2"),
+    url("/fonts/29ltbukrabold.woff") format("woff"),
+    url("/fonts/29ltbukrabold.ttf") format("truetype"),
+    url("/fonts/29ltbukrabold.svg#29ltbukrabold") format("svg");
+}
+
+@font-face {
+  font-family: "dubai";
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/DubaiLight.eot");
+  src: url("/fonts/DubaiLight.eot") format("embedded-opentype"),
+    url("/fonts/DubaiLight.woff2") format("woff2"),
+    url("/fonts/DubaiLight.woff") format("woff"),
+    url("/fonts/DubaiLight.ttf") format("truetype"),
+    url("/fonts/DubaiLight.svg#DubaiLight") format("svg");
+}
+
+@font-face {
+  font-family: "dubai";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/DubaiRegular.eot");
+  src: url("/fonts/DubaiRegular.eot") format("embedded-opentype"),
+    url("/fonts/DubaiRegular.woff2") format("woff2"),
+    url("/fonts/DubaiRegular.woff") format("woff"),
+    url("/fonts/DubaiRegular.ttf") format("truetype"),
+    url("/fonts/DubaiRegular.svg#DubaiRegular") format("svg");
+}
+
+@font-face {
+  font-family: "dubai";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/DubaiMedium.eot");
+  src: url("/fonts/DubaiMedium.eot") format("embedded-opentype"),
+    url("/fonts/DubaiMedium.woff2") format("woff2"),
+    url("/fonts/DubaiMedium.woff") format("woff"),
+    url("/fonts/DubaiMedium.ttf") format("truetype"),
+    url("/fonts/DubaiMedium.svg#DubaiMedium") format("svg");
+}
+
+@font-face {
+  font-family: "dubai";
+  font-weight: bold;
+  font-style: normal;
+  src: url("/fonts/DubaiBold.eot");
+  src: url("/fonts/DubaiBold.eot") format("embedded-opentype"),
+    url("/fonts/DubaiBold.woff2") format("woff2"),
+    url("/fonts/DubaiBold.woff") format("woff"),
+    url("/fonts/DubaiBold.ttf") format("truetype"),
+    url("/fonts/DubaiBold.svg#DubaiBold") format("svg");
+}
+
+@font-face {
+  font-family: "dp-icon-font";
+  src: url("/fonts/dp-icon-font.eot");
+  src: url("/fonts/dp-icon-font.eot") format("embedded-opentype"),
+    url("/fonts/dp-icon-font.woff") format("woff"),
+    url("/fonts/dp-icon-font.ttf") format("truetype"),
+    url("/fonts/dp-icon-font.svg?22893716#dp-icon-font") format("svg");
+}
+
+
+
