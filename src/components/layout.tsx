@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <SidebarProvider>
                 <AppSidebar />
-                <main className="w-full bg-secondary-10">
+                <main className="w-full bg-secondary-10 dark:bg-secondary-900">
                     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
                         <div className="w-full flex-1">
                             <form>
