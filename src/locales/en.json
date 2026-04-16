@@ -1,0 +1,77 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "uiComponents": "UI Components",
+    "forms": "Forms",
+    "icons": "Icons",
+    "cards": "Cards",
+    "buttons": "Buttons",
+    "badges": "Badges",
+    "toast": "Toast",
+    "tabs": "Tabs",
+    "modalPopups": "Modal Popups",
+    "sideDrawers": "Side Drawers",
+    "table": "Table (with pagination and sorting)",
+    "dropdownMenu": "Dropdown Menu",
+    "progressBar": "Progress Bar",
+    "charts": "Charts",
+    "accordion": "Accordion",
+    "breadcrumb": "BreadCrumb",
+    "navigationMenu": "Navigation Menu",
+    "alert": "Alert",
+    "form": "Form",
+    "input": "Input",
+    "select": "Select",
+    "checkbox": "Checkbox",
+    "radio": "Radio",
+    "textarea": "Textarea",
+    "datepicker": "Datepicker",
+    "fileupload": "Fileupload",
+    "slider": "Slider",
+    "toggle": "Toggle",
+    "switch": "Switch",
+    "textEditor": "Text Editor",
+    "hugeIcons": "HugeIcons"
+  },
+  "layout": {
+    "searchProducts": "Search products..."
+  },
+  "dashboard": {
+    "totalRevenue": "Total Revenue",
+    "subscriptions": "Subscriptions",
+    "sales": "Sales",
+    "activeNow": "Active Now",
+    "fromLastMonth20": "+20.1% from last month",
+    "fromLastMonth180": "+180.1% from last month",
+    "fromLastMonth19": "+19% from last month",
+    "sinceLastHour": "+201 since last hour",
+    "overview": "Overview",
+    "chartPlaceholder": "Chart Area Placeholder",
+    "recentSales": "Recent Sales",
+    "recentSalesDescription": "You made 265 sales this month.",
+    "clickMe": "Click me"
+  },
+  "cards": {
+    "title": "Cards",
+    "subtitle": "A dedicated route to preview card layouts.",
+    "completedOrders": "Completed Orders"
+  },
+  "charts": {
+    "title": "Charts",
+    "subtitle": "Charts wrapped inside CardWidget components.",
+    "monthlyTraffic": "Monthly Traffic",
+    "revenueSplit": "Revenue Split",
+    "conversionTrend": "Conversion Trend"
+  },
+  "buttons": {
+    "title": "Buttons",
+    "subtitle": "A dedicated route to preview button variants and sizes.",
+    "variants": "Variants",
+    "sizes": "Sizes"
+  }
+}

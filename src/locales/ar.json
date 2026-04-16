@@ -1,0 +1,77 @@
+{
+  "common": {
+    "language": "اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+  },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "uiComponents": "مكونات الواجهة",
+    "forms": "النماذج",
+    "icons": "الأيقونات",
+    "cards": "البطاقات",
+    "buttons": "الأزرار",
+    "badges": "الشارات",
+    "toast": "الإشعارات المنبثقة",
+    "tabs": "علامات التبويب",
+    "modalPopups": "النوافذ المنبثقة",
+    "sideDrawers": "الأدراج الجانبية",
+    "table": "الجدول (مع الترقيم والفرز)",
+    "dropdownMenu": "القائمة المنسدلة",
+    "progressBar": "شريط التقدم",
+    "charts": "الرسوم البيانية",
+    "accordion": "الأكورديون",
+    "breadcrumb": "مسار التنقل",
+    "navigationMenu": "قائمة التنقل",
+    "alert": "التنبيه",
+    "form": "النموذج",
+    "input": "حقل الإدخال",
+    "select": "الاختيار",
+    "checkbox": "مربع الاختيار",
+    "radio": "زر الاختيار",
+    "textarea": "منطقة النص",
+    "datepicker": "منتقي التاريخ",
+    "fileupload": "رفع الملفات",
+    "slider": "شريط التمرير",
+    "toggle": "التبديل",
+    "switch": "المفتاح",
+    "textEditor": "محرر النص",
+    "hugeIcons": "HugeIcons"
+  },
+  "layout": {
+    "searchProducts": "ابحث عن المنتجات..."
+  },
+  "dashboard": {
+    "totalRevenue": "إجمالي الإيرادات",
+    "subscriptions": "الاشتراكات",
+    "sales": "المبيعات",
+    "activeNow": "النشطون الآن",
+    "fromLastMonth20": "+20.1% مقارنة بالشهر الماضي",
+    "fromLastMonth180": "+180.1% مقارنة بالشهر الماضي",
+    "fromLastMonth19": "+19% مقارنة بالشهر الماضي",
+    "sinceLastHour": "+201 منذ الساعة الماضية",
+    "overview": "نظرة عامة",
+    "chartPlaceholder": "منطقة الرسم البياني",
+    "recentSales": "المبيعات الأخيرة",
+    "recentSalesDescription": "لقد حققت 265 عملية بيع هذا الشهر.",
+    "clickMe": "اضغط هنا"
+  },
+  "cards": {
+    "title": "البطاقات",
+    "subtitle": "صفحة مخصصة لمعاينة تخطيطات البطاقات.",
+    "completedOrders": "الطلبات المكتملة"
+  },
+  "charts": {
+    "title": "الرسوم البيانية",
+    "subtitle": "رسوم بيانية داخل مكوّن CardWidget.",
+    "monthlyTraffic": "حركة الزيارات الشهرية",
+    "revenueSplit": "توزيع الإيرادات",
+    "conversionTrend": "اتجاه التحويل"
+  },
+  "buttons": {
+    "title": "الأزرار",
+    "subtitle": "صفحة مخصصة لمعاينة أشكال وأحجام الأزرار.",
+    "variants": "الأنواع",
+    "sizes": "الأحجام"
+  }
+}

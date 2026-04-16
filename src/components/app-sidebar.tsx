@@ -1,90 +1,128 @@
 import {
-  IdCard,
+  AlignLeft,
+  AlertTriangle,
+  BarChart2,
+  Bell,
+  CalendarDays,
+  CheckSquare,
+  ChevronRight,
+  CreditCard,
+  FileText,
+  FileUp,
   Home,
-  LineChart,
+  Layers,
+  LayoutDashboard,
+  LayoutGrid,
+  ListOrdered,
+  Menu,
+  MessageSquare,
+  MousePointerClick,
   Package,
-  ShoppingCart,
-  Users,
+  PanelRight,
+  Radio,
+  SlidersHorizontal,
+  Smile,
+  SquareStack,
+  Table2,
+  Tag,
+  ToggleLeft,
+  ToggleRight,
+  Type,
 } from "lucide-react"
 import { NavLink, useLocation } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarHeader,
-  SidebarTrigger,
-} from "@/components/ui/sidebar"
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, SidebarTrigger } from "@/components/ui/sidebar"
+import useIsRtl from "@/hooks/useIsRtl"
 
-const items = [
+const sections = [
   {
-    title: "Dashboard",
-    url: "/",
-    icon: Home,
+    titleKey: "sidebar.dashboard",
+    items: [{ titleKey: "sidebar.dashboard", url: "/", icon: LayoutDashboard }],
   },
   {
-    title: "Cards",
-    url: "/cards",
-    icon: IdCard,
+    titleKey: "sidebar.uiComponents",
+    items: [
+      { titleKey: "sidebar.cards", url: "/cards", icon: CreditCard },
+      { titleKey: "sidebar.buttons", url: "/buttons", icon: MousePointerClick },
+      { titleKey: "sidebar.badges", url: "/ui/badges", icon: Tag },
+      { titleKey: "sidebar.toast", url: "/ui/toast", icon: Bell },
+      { titleKey: "sidebar.tabs", url: "/ui/tabs", icon: SquareStack },
+      { titleKey: "sidebar.modalPopups", url: "/ui/modal-popups", icon: Layers },
+      { titleKey: "sidebar.sideDrawers", url: "/ui/side-drawers", icon: PanelRight },
+      { titleKey: "sidebar.table", url: "/ui/table", icon: Table2 },
+      { titleKey: "sidebar.dropdownMenu", url: "/ui/dropdown-menu", icon: Menu },
+      { titleKey: "sidebar.progressBar", url: "/ui/progress-bar", icon: ListOrdered },
+      { titleKey: "sidebar.charts", url: "/charts", icon: BarChart2 },
+      { titleKey: "sidebar.accordion", url: "/ui/accordion", icon: ChevronRight },
+      { titleKey: "sidebar.breadcrumb", url: "/ui/breadcrumb", icon: LayoutGrid },
+      { titleKey: "sidebar.navigationMenu", url: "/ui/navigation-menu", icon: Home },
+      { titleKey: "sidebar.alert", url: "/ui/alert", icon: AlertTriangle },
+    ],
   },
   {
-    title: "Orders",
-    url: "#",
-    icon: ShoppingCart,
+    titleKey: "sidebar.forms",
+    items: [
+      { titleKey: "sidebar.form", url: "/forms/form", icon: FileText },
+      { titleKey: "sidebar.input", url: "/forms/input", icon: Type },
+      { titleKey: "sidebar.select", url: "/forms/select", icon: ListOrdered },
+      { titleKey: "sidebar.checkbox", url: "/forms/checkbox", icon: CheckSquare },
+      { titleKey: "sidebar.radio", url: "/forms/radio", icon: Radio },
+      { titleKey: "sidebar.textarea", url: "/forms/textarea", icon: MessageSquare },
+      { titleKey: "sidebar.datepicker", url: "/forms/datepicker", icon: CalendarDays },
+      { titleKey: "sidebar.fileupload", url: "/forms/fileupload", icon: FileUp },
+      { titleKey: "sidebar.slider", url: "/forms/slider", icon: SlidersHorizontal },
+      { titleKey: "sidebar.toggle", url: "/forms/toggle", icon: ToggleLeft },
+      { titleKey: "sidebar.switch", url: "/forms/switch", icon: ToggleRight },
+      { titleKey: "sidebar.textEditor", url: "/forms/text-editor", icon: AlignLeft },
+    ],
   },
   {
-    title: "Products",
-    url: "#",
-    icon: Package,
-  },
-  {
-    title: "Customers",
-    url: "#",
-    icon: Users,
-  },
-  {
-    title: "Analytics",
-    url: "#",
-    icon: LineChart,
+    titleKey: "sidebar.icons",
+    items: [{ titleKey: "sidebar.hugeIcons", url: "/icons/huge-icons", icon: Smile }],
   },
 ]
 
 export function AppSidebar() {
   const location = useLocation()
+  const { t } = useTranslation()
+  const isRtl = useIsRtl()
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar side={isRtl ? "right" : "left"} collapsible="icon" variant="floating" className="overflow-hidden ">
       <SidebarHeader>
-        <div className="flex h-14 items-center px-4">
+        {/* <span className="block size-[400px] absolute pointer-events-none top-0 left-0 -translate-x-[30%] -translate-y-[30%] bg-[radial-gradient(#F1FFFA,transparent_75%)] rounded-full"></span> */}
+        <div className="flex h-14 items-center">
           <NavLink to="/" className="flex items-center gap-2 font-semibold">
             <Package className="h-6 w-6" />
-            <span className="font-mono">Acme Inc</span>
+            {/* <span className="font-mono">Acme Inc</span> */}
           </NavLink>
         </div>
         <SidebarTrigger className="m-4 absolute" />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton
-                    isActive={item.url !== "#" && location.pathname === item.url}
-                    render={item.url === "#" ? <a href={item.url} /> : <NavLink to={item.url} />}
-                  >
-                    <item.icon />
-                    <span>{item.title}</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {sections.map((section) => (
+          <SidebarGroup key={section.titleKey}>
+            <SidebarGroupLabel>{t(section.titleKey)}</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {section.items.map((item) => (
+                  <SidebarMenuItem key={item.titleKey}>
+                    <SidebarMenuButton
+                      isActive={location.pathname === item.url}
+                      asChild
+                    >
+                      <NavLink to={item.url} >
+                      <item.icon size={20} />
+                      <span>{t(item.titleKey)}</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
       </SidebarContent>
     </Sidebar>
   )
