@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon, Eye, EyeOff, Minus, Plus } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -52,6 +52,10 @@ export default function FormsPage({ section }: { section: FormSection }) {
   const [sliderValue, setSliderValue] = useState([50])
   const [switchOn, setSwitchOn] = useState(true)
   const [date, setDate] = useState<Date | undefined>(undefined)
+  const [showPassword, setShowPassword] = useState(false)
+  const [otp, setOtp] = useState(["", "", "", "", "", ""])
+  const [counter, setCounter] = useState(0)
+  const otpRefs = useRef<(HTMLInputElement | null)[]>([])
 
   return (
     <div className="flex flex-col flex-1 w-full">
@@ -80,8 +84,149 @@ export default function FormsPage({ section }: { section: FormSection }) {
         )}
 
         {section === "input" && (
-          <SectionCard title="Input">
-            <Input placeholder="Type here..." />
+          <SectionCard title="Input Variants">
+            <div className="space-y-8 max-w-md">
+
+              {/* Default */}
+              <div className="space-y-2">
+                <Label>Default</Label>
+                <Input placeholder="Email address" />
+                <Input placeholder="Disabled" disabled />
+              </div>
+
+              {/* Password */}
+              <div className="space-y-2">
+                <Label>Password</Label>
+                <div className="relative">
+                  <Input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter password"
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((v) => !v)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+              </div>
+
+              {/* Leading Dropdown */}
+              <div className="space-y-2">
+                <Label>Leading Dropdown</Label>
+                <div className="flex">
+                  <Select defaultValue="+1">
+                    <SelectTrigger className="w-[100px] rounded-r-none border-r-0 focus:z-10">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="+1">🇺🇸 +1</SelectItem>
+                      <SelectItem value="+44">🇬🇧 +44</SelectItem>
+                      <SelectItem value="+971">🇦🇪 +971</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Input placeholder="Phone number" className="rounded-l-none" />
+                </div>
+              </div>
+
+              {/* Trailing Dropdown */}
+              <div className="space-y-2">
+                <Label>Trailing Dropdown</Label>
+                <div className="flex">
+                  <Input placeholder="Amount" className="rounded-r-none" />
+                  <Select defaultValue="usd">
+                    <SelectTrigger className="w-[90px] rounded-l-none border-l-0 focus:z-10">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="usd">USD</SelectItem>
+                      <SelectItem value="eur">EUR</SelectItem>
+                      <SelectItem value="gbp">GBP</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* OTP */}
+              <div className="space-y-2">
+                <Label>OTP</Label>
+                <div className="flex gap-2">
+                  {otp.map((digit, i) => (
+                    <Input
+                      key={i}
+                      ref={(el) => { otpRefs.current[i] = el }}
+                      value={digit}
+                      maxLength={1}
+                      inputMode="numeric"
+                      className="w-12 text-center px-0"
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/\D/, "")
+                        const next = [...otp]
+                        next[i] = val
+                        setOtp(next)
+                        if (val && i < 5) otpRefs.current[i + 1]?.focus()
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Backspace" && !otp[i] && i > 0) otpRefs.current[i - 1]?.focus()
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Date & Time */}
+              <div className="space-y-2">
+                <Label>Date &amp; Time</Label>
+                <Input type="datetime-local" />
+              </div>
+
+              {/* Leading Text */}
+              <div className="space-y-2">
+                <Label>Leading Text</Label>
+                <div className="flex">
+                  <span className="inline-flex items-center rounded-l-lg border border-r-0 border-input bg-muted px-3 text-sm text-muted-foreground">
+                    https://
+                  </span>
+                  <Input placeholder="example.com" className="rounded-l-none" />
+                </div>
+                <div className="flex">
+                  <span className="inline-flex items-center rounded-l-lg border border-r-0 border-input bg-muted px-3 text-sm text-muted-foreground">
+                    $
+                  </span>
+                  <Input placeholder="0.00" className="rounded-l-none" />
+                </div>
+              </div>
+
+              {/* Number Counter */}
+              <div className="space-y-2">
+                <Label>Number Counter</Label>
+                <div className="flex w-36">
+                  <button
+                    type="button"
+                    onClick={() => setCounter((v) => v - 1)}
+                    className="inline-flex items-center justify-center rounded-l-lg border border-r-0 border-input bg-muted px-3 hover:bg-accent"
+                  >
+                    <Minus className="h-3.5 w-3.5" />
+                  </button>
+                  <Input
+                    type="number"
+                    value={counter}
+                    onChange={(e) => setCounter(Number(e.target.value))}
+                    className="rounded-none text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setCounter((v) => v + 1)}
+                    className="inline-flex items-center justify-center rounded-r-lg border border-l-0 border-input bg-muted px-3 hover:bg-accent"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
           </SectionCard>
         )}
 

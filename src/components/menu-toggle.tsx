@@ -40,15 +40,14 @@ export function ModeToggle() {
         )}
       >
         <Sun
-          className={cn(
-            "absolute h-5 w-5 stroke-[#5DCAA5] transition-all duration-300",
-            isDark ? "scale-50 rotate-[30deg] " : "scale-100 rotate-0 opacity-100"
+          className={cn( "absolute h-5 w-5 stroke-[#5DCAA5] transition-all duration-300",
+            isDark ? "scale-50 rotate-30 " : "scale-100 rotate-0 opacity-100"
           )}
         />
         <Moon
           className={cn(
             "absolute h-5 w-5 fill-[#9FE1CB] stroke-none transition-all duration-300",
-            isDark ? "scale-100 rotate-0 opacity-100" : "scale-50 -rotate-[30deg] "
+            isDark ? "scale-100 rotate-0 opacity-100" : "scale-50 -rotate-30"
           )}
         />
       </span>

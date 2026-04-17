@@ -1,12 +1,14 @@
 import { useMemo, useState } from "react"
-import { ChevronRight, Info, TriangleAlert } from "lucide-react"
+import { Info, TriangleAlert } from "lucide-react"
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Progress } from "@/components/ui/progress"
 
 type UiSection =
   | "badges"
@@ -45,7 +47,6 @@ function SectionCard({ title, children }: { title: string; children: React.React
 export default function UiComponentsPage({ section }: { section: UiSection }) {
   const [toastOpen, setToastOpen] = useState(false)
   const [tab, setTab] = useState<"account" | "password">("account")
-  const [accordion, setAccordion] = useState<string | null>("item-1")
   const [sortAsc, setSortAsc] = useState(true)
   const [page, setPage] = useState(1)
   const [progress, setProgress] = useState(60)
@@ -200,9 +201,7 @@ export default function UiComponentsPage({ section }: { section: UiSection }) {
         {section === "progress-bar" && (
           <SectionCard title="Progress Bar">
             <div className="space-y-3">
-              <div className="h-3 w-full rounded-full bg-muted">
-                <div className="h-3 rounded-full bg-primary transition-all" style={{ width: `${progress}%` }} />
-              </div>
+              <Progress value={progress} />
               <div className="flex gap-2">
                 <Button size="sm" variant="outline" onClick={() => setProgress((v) => Math.max(0, v - 10))}>-10%</Button>
                 <Button size="sm" variant="outline" onClick={() => setProgress((v) => Math.min(100, v + 10))}>+10%</Button>
@@ -213,20 +212,20 @@ export default function UiComponentsPage({ section }: { section: UiSection }) {
 
         {section === "accordion" && (
           <SectionCard title="Accordion">
-            <div className="space-y-2">
-              {[
-                { id: "item-1", title: "What is shadcn?", content: "A collection of beautifully designed components." },
-                { id: "item-2", title: "Can I customize it?", content: "Yes, you can customize classes and behavior." },
-              ].map((item) => (
-                <div key={item.id} className="rounded-md border">
-                  <button className="flex w-full items-center justify-between p-3 text-left" onClick={() => setAccordion((v) => (v === item.id ? null : item.id))}>
-                    {item.title}
-                    <ChevronRight className={`h-4 w-4 transition-transform ${accordion === item.id ? "rotate-90" : ""}`} />
-                  </button>
-                  {accordion === item.id && <div className="border-t p-3 text-sm text-muted-foreground">{item.content}</div>}
-                </div>
-              ))}
-            </div>
+            <Accordion className="w-full rounded-md border px-3">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>What is Dashboard?</AccordionTrigger>
+                <AccordionContent>
+                    A collection of beautifully designed components.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>Can I customize it?</AccordionTrigger>
+                <AccordionContent>
+                  Yes, you can customize classes and behavior.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </SectionCard>
         )}
 
