@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { format } from "date-fns"
 import { CalendarIcon, Eye, EyeOff, Minus, Plus } from "lucide-react"
 
+import { PhoneInput } from "@/components/ui/phone-input"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -113,22 +114,10 @@ export default function FormsPage({ section }: { section: FormSection }) {
                 </div>
               </div>
 
-              {/* Leading Dropdown */}
+              {/* Leading Dropdown — Phone with intl-tel-input */}
               <div className="space-y-2">
-                <Label>Leading Dropdown</Label>
-                <div className="flex">
-                  <Select defaultValue="+1">
-                    <SelectTrigger className="w-[100px] rounded-r-none border-r-0 focus:z-10">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="+1">🇺🇸 +1</SelectItem>
-                      <SelectItem value="+44">🇬🇧 +44</SelectItem>
-                      <SelectItem value="+971">🇦🇪 +971</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Input placeholder="Phone number" className="rounded-l-none" />
-                </div>
+                <Label htmlFor="phone">Leading Dropdown</Label>
+                <PhoneInput id="phone" />
               </div>
 
               {/* Trailing Dropdown */}

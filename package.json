@@ -30,6 +30,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "i18next": "^26.0.4",
+    "intl-tel-input": "^27.0.10",
     "lucide-react": "^1.8.0",
     "react": "^19.2.4",
     "react-day-picker": "^9.14.0",

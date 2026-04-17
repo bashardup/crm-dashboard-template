@@ -17,7 +17,6 @@ import {
   Menu,
   MessageSquare,
   MousePointerClick,
-  Package,
   PanelRight,
   Radio,
   SlidersHorizontal,
@@ -90,15 +89,25 @@ export function AppSidebar() {
 
   return (
     <Sidebar side={isRtl ? "right" : "left"} collapsible="icon" variant="floating" className="overflow-hidden ">
-      <SidebarHeader>
+      <SidebarHeader className="flex group-data-[collapsible=icon]:flex-col flex-row items-center justify-between">
         {/* <span className="block size-[400px] absolute pointer-events-none top-0 left-0 -translate-x-[30%] -translate-y-[30%] bg-[radial-gradient(#F1FFFA,transparent_75%)] rounded-full"></span> */}
-        <div className="flex h-14 items-center">
-          <NavLink to="/" className="flex items-center gap-2 font-semibold">
-            <Package className="h-6 w-6" />
-            {/* <span className="font-mono">Acme Inc</span> */}
+        <div className="flex  items-center px-2">
+          <NavLink to="/" className="flex items-center">
+            {/* Expanded: full colour logo */}
+            <img
+              src="/img/dp-logo-color.svg"
+              alt="Dubai Police"
+              className="aspect-[16/5] h-10 w-auto object-contain group-data-[collapsible=icon]:hidden"
+            />
+            {/* Collapsed: icon only */}
+            <img
+              src="/img/Dubai-Police-Default-Icon.svg"
+              alt="Dubai Police"
+              className="aspect-square h-8 w-auto object-contain hidden group-data-[collapsible=icon]:block"
+            />
           </NavLink>
         </div>
-        <SidebarTrigger className="m-4 absolute" />
+        <SidebarTrigger className="m-4 " />
       </SidebarHeader>
       <SidebarContent>
         {sections.map((section) => (

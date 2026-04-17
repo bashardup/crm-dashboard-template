@@ -8,6 +8,10 @@ import {
   CartesianGrid,
   Line,
   LineChart,
+  PolarAngleAxis,
+  PolarGrid,
+  Radar,
+  RadarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -39,6 +43,15 @@ const conversionData = [
   { week: "W4", rate: 3.5 },
   { week: "W5", rate: 3.2 },
   { week: "W6", rate: 3.8 },
+]
+
+const radarData = [
+  { metric: "Speed", value: 82 },
+  { metric: "Reliability", value: 91 },
+  { metric: "Security", value: 78 },
+  { metric: "Scalability", value: 65 },
+  { metric: "Usability", value: 88 },
+  { metric: "Efficiency", value: 74 },
 ]
 
 export default function ChartsPage() {
@@ -113,6 +126,26 @@ export default function ChartsPage() {
                     activeDot={{ r: 6 }}
                   />
                 </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </CardWidget>
+
+          <CardWidget title={t("charts.performanceRadar")} icon="/icons/steps.svg">
+            <div className="min-h-[260px] w-full">
+              <ResponsiveContainer width="100%" height={260}>
+                <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="75%">
+                  <PolarGrid strokeDasharray="4 4" />
+                  <PolarAngleAxis dataKey="metric" tick={{ fontSize: 12, fill: "currentColor" }} />
+                  <Radar
+                    dataKey="value"
+                    stroke="#16a34a"
+                    fill="#16a34a"
+                    fillOpacity={0.25}
+                    strokeWidth={2}
+                    dot={{ r: 3, fill: "#15803d" }}
+                  />
+                  <Tooltip formatter={(v: number) => [v, "Score"]} />
+                </RadarChart>
               </ResponsiveContainer>
             </div>
           </CardWidget>

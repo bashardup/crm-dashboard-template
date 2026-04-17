@@ -66,7 +66,8 @@
     "subtitle": "رسوم بيانية داخل مكوّن CardWidget.",
     "monthlyTraffic": "حركة الزيارات الشهرية",
     "revenueSplit": "توزيع الإيرادات",
-    "conversionTrend": "اتجاه التحويل"
+    "conversionTrend": "اتجاه التحويل",
+    "performanceRadar": "رادار الأداء"
   },
   "buttons": {
     "title": "الأزرار",
