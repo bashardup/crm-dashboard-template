@@ -36,7 +36,7 @@ export default function CardsPage() {
             <CardWidget
               key={`widget-${index}`}
               title={t(item.titleKey)}
-              icon="/icons/steps.svg"
+              icon="/img/icon-channel.svg"
             >
              sdf
             </CardWidget>

@@ -1,4 +1,6 @@
 import { CardWidget } from "@/components/ui/card-widget"
+import UAEHexbinMap from "@/components/ui/uae-hex"
+import UAEMap from "@/components/ui/uae-map"
 import { useTranslation } from "react-i18next"
 import {
   Area,
@@ -6,6 +8,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Legend,
   Line,
   LineChart,
   PolarAngleAxis,
@@ -54,6 +57,35 @@ const radarData = [
   { metric: "Efficiency", value: 74 },
 ]
 
+
+const radarsData = [
+  { metric: "Response Time", current: 6, previous: 5 },
+  { metric: "Ease of Use", current: 8, previous: 7.5 },
+  { metric: "Satisfaction", current: 8.5, previous: 9.5 },
+  { metric: "Complaint Handling", current: 7, previous: 6.5 }
+];
+
+export const kioskData = [
+  { lat: 25.2048, lng: 55.2708, usage: 120 },
+  { lat: 25.1972, lng: 55.2744, usage: 80 },
+  { lat: 25.2040, lng: 55.2715, usage: 150 },
+  { lat: 25.2100, lng: 55.2800, usage: 60 },
+
+  { lat: 24.4539, lng: 54.3773, usage: 90 },
+  { lat: 24.4600, lng: 54.3700, usage: 110 },
+  { lat: 24.4700, lng: 54.3900, usage: 70 },
+
+  { lat: 25.3463, lng: 55.4209, usage: 50 },
+  { lat: 25.3500, lng: 55.4300, usage: 40 },
+
+  { lat: 25.4052, lng: 55.5136, usage: 30 },
+
+  { lat: 25.8007, lng: 55.9762, usage: 25 },
+
+  { lat: 25.1288, lng: 56.3265, usage: 20 }
+];
+
+
 export default function ChartsPage() {
   const { t } = useTranslation()
 
@@ -68,7 +100,7 @@ export default function ChartsPage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <CardWidget title={t("charts.monthlyTraffic")} icon="/icons/steps.svg">
+          <CardWidget title={t("charts.monthlyTraffic")} icon="/img/icon-channel.svg">
             <div className="min-h-[260px] w-full">
               <ResponsiveContainer width="100%" height={260}>
                 <AreaChart data={trafficData}>
@@ -94,7 +126,7 @@ export default function ChartsPage() {
             </div>
           </CardWidget>
 
-          <CardWidget title={t("charts.revenueSplit")} icon="/icons/steps.svg">
+          <CardWidget title={t("charts.revenueSplit")} icon="/img/icon-channel.svg">
             <div className="min-h-[260px] w-full">
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={revenueData} barGap={8}>
@@ -109,7 +141,7 @@ export default function ChartsPage() {
             </div>
           </CardWidget>
 
-          <CardWidget title={t("charts.conversionTrend")} icon="/icons/steps.svg">
+          <CardWidget title={t("charts.conversionTrend")} icon="/img/icon-channel.svg">
             <div className="min-h-[260px] w-full">
               <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={conversionData}>
@@ -130,9 +162,11 @@ export default function ChartsPage() {
             </div>
           </CardWidget>
 
-          <CardWidget title={t("charts.performanceRadar")} icon="/icons/steps.svg">
-            <div className="min-h-[260px] w-full">
-              <ResponsiveContainer width="100%" height={260}>
+          <CardWidget title={t("charts.performanceRadar")} icon="/img/icon-channel.svg">
+
+
+            <div className="min-h-[400px] w-full">
+              <ResponsiveContainer width="100%" height={400}>
                 <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="75%">
                   <PolarGrid strokeDasharray="4 4" />
                   <PolarAngleAxis dataKey="metric" tick={{ fontSize: 12, fill: "currentColor" }} />
@@ -144,9 +178,93 @@ export default function ChartsPage() {
                     strokeWidth={2}
                     dot={{ r: 3, fill: "#15803d" }}
                   />
-                  <Tooltip formatter={(v: number) => [v, "Score"]} />
+                  <Tooltip formatter={(v: number) => [v, "Score"]} contentStyle={{
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px"
+                  }} />
                 </RadarChart>
               </ResponsiveContainer>
+            </div>
+          </CardWidget>
+
+
+          <CardWidget title={t("charts.performanceRadar")} icon="/img/icon-channel.svg">
+            <div className="flex justify-center mt-4 sm:mt-0 sm:justify-center mx-auto items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="relative flex items-center">
+                  <div className="size-2.5 border-2 rounded-full border-[#1EA663] "></div>
+                  <div className="h-[2px] w-[15px] bg-[#1EA663]"></div>
+                </div>
+                <span className="text-sm text-[currentColor]">Current</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="relative flex items-center">
+                  <div className="size-2.5 border-2 rounded-full border-[#05BFD9]"></div>
+                  <div className="h-[2px] w-[15px] bg-[#05BFD9]"></div>
+                </div>
+                <span className="text-sm text-[currentColor]">Previous</span>
+              </div>
+
+            </div>
+            <div className="h-[400px] w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={radarsData} cx="50%" cy="50%" outerRadius="70%">
+
+                  <PolarGrid stroke="#e5e7eb" strokeDasharray="3 3" />
+
+                  <PolarAngleAxis
+                    dataKey="metric"
+                    tick={{ fontSize: 12, fill: "currentColor" }}
+                  />
+
+                  <Radar
+                    name="Current"
+                    dataKey="current"
+                    stroke="#1EA663"
+                    fill="#1EA663"
+                    fillOpacity={0.25}
+                    strokeWidth={2}
+                    dot={{ r: 4, fill: "#1EA663" }}
+                  />
+
+                  <Radar
+                    name="Previous"
+                    dataKey="previous"
+                    stroke="#05BFD9"
+                    fill="#05BFD9"
+                    fillOpacity={0.2}
+                    strokeWidth={2}
+                    dot={{ r: 4, fill: "#1d4ed8" }}
+                  />
+
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "#ffffff",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "8px"
+                    }}
+                    formatter={(value: number) => [`${(value).toFixed(0)}`, "Score"]}
+                  />
+
+                  {/* <Legend wrapperStyle={{ fontSize: "12px" }} /> */}
+
+                </RadarChart>
+              </ResponsiveContainer>
+
+            </div>
+          </CardWidget>
+
+
+          <CardWidget title={t("charts.performanceRadar")} icon="/img/icon-channel.svg">
+            <div className=" w-full">
+              <UAEHexbinMap />
+            </div>
+          </CardWidget>
+          
+          <CardWidget title={t("charts.performanceRadar")} icon="/img/icon-channel.svg">
+            <div className=" w-full">
+              <UAEMap />
             </div>
           </CardWidget>
         </div>

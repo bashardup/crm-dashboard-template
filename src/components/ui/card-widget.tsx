@@ -29,7 +29,7 @@ function CardWidget({
         <div className="flex-col-auto w-14">
           <div className="rounded-2xl p-2 bg-primary-25 dark:bg-emerald-50/10">
             <div className="aspect-square relative">
-              {/* <img src={icon} alt={title} /> */}
+              <img src={icon} alt={title} />
             </div>
           </div>
         </div>
