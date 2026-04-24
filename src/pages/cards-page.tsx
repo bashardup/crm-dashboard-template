@@ -1,11 +1,12 @@
+import { ActiveTickets, CompletedRequest, Icon01 } from "@/components/lottie/registry"
 import { ActivityCard } from "@/components/ui/activity-card"
 import { CardWidget } from "@/components/ui/card-widget"
 import { useTranslation } from "react-i18next"
 
 const cardItems = [
-  { titleKey: "cards.completedOrders", description: "124", price: "$9/mo" },
-  { titleKey: "cards.completedOrders", description: "124", price: "$29/mo" },
-  { titleKey: "cards.completedOrders", description: "45", price: "Contact us" },
+  { titleKey: "cards.completedOrders", description: "124", lottieId: CompletedRequest },
+  { titleKey: "cards.completedOrders", description: "124", lottieId: ActiveTickets },
+  { titleKey: "cards.completedOrders", description: "45",  lottieId: Icon01 },
 ]
 
 export default function CardsPage() {
@@ -25,7 +26,7 @@ export default function CardsPage() {
               key={`activity-${index}`}
               title={t(item.titleKey)}
               description={item.description}
-              icon={{ src: "/icons/steps.svg", alt: "Steps" }}
+              lottieId={item.lottieId}
             />
           ))}
         </div>

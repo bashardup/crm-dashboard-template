@@ -8,7 +8,6 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   PolarAngleAxis,
@@ -248,10 +247,8 @@ export default function ChartsPage() {
                   />
 
                   {/* <Legend wrapperStyle={{ fontSize: "12px" }} /> */}
-
                 </RadarChart>
               </ResponsiveContainer>
-
             </div>
           </CardWidget>
 

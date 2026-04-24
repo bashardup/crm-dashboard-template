@@ -14,6 +14,8 @@ import {
   LayoutDashboard,
   LayoutGrid,
   ListOrdered,
+  LogIn,
+  Mail,
   Menu,
   MessageSquare,
   MousePointerClick,
@@ -21,12 +23,14 @@ import {
   Radio,
   SlidersHorizontal,
   Smile,
+  Sparkles,
   SquareStack,
   Table2,
   Tag,
   ToggleLeft,
   ToggleRight,
   Type,
+  UserPlus,
 } from "lucide-react"
 import { NavLink, useLocation } from "react-router-dom"
 import { useTranslation } from "react-i18next"
@@ -79,6 +83,15 @@ const sections = [
   {
     titleKey: "sidebar.icons",
     items: [{ titleKey: "sidebar.hugeIcons", url: "/icons/huge-icons", icon: Smile }],
+  },
+  {
+    titleKey: "sidebar.pages",
+    items: [
+      { titleKey: "sidebar.login", url: "/login", icon: LogIn },
+      { titleKey: "sidebar.signup", url: "/signup", icon: UserPlus },
+      { titleKey: "sidebar.emailTemplates", url: "/email-templates", icon: Mail },
+      { titleKey: "sidebar.lottieIcons", url: "/lottie-icons", icon: Sparkles },
+    ],
   },
 ]
 

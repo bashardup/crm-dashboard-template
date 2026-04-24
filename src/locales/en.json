@@ -36,7 +36,12 @@
     "toggle": "Toggle",
     "switch": "Switch",
     "textEditor": "Text Editor",
-    "hugeIcons": "HugeIcons"
+    "hugeIcons": "HugeIcons",
+    "pages": "Pages",
+    "login": "Login",
+    "signup": "Sign Up",
+    "emailTemplates": "Email Templates",
+    "lottieIcons": "Lottie Icons"
   },
   "layout": {
     "searchProducts": "Search products..."

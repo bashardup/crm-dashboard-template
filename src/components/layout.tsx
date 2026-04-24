@@ -31,8 +31,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             value={i18n.language === "ar" ? "ar" : "en"}
                             onChange={handleLanguageChange}
                             className="h-9 rounded-md border bg-background px-3 text-sm" >
-                            <option value="en">{t("common.english")}</option>
-                            <option value="ar">{t("common.arabic")}</option>
+                              <option value="en">{t("common.english")}</option>
+                              <option value="ar">{t("common.arabic")}</option>
                         </select>
                         <Avatar>
                             <AvatarImage src="https://github.com/shadcn.png" />

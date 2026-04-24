@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react"
+import { toast } from "sonner"
+import { Badge } from "@/components/ui/badge"
 import { Info, TriangleAlert } from "lucide-react"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -8,6 +10,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 
 type UiSection =
@@ -45,8 +48,6 @@ function SectionCard({ title, children }: { title: string; children: React.React
 }
 
 export default function UiComponentsPage({ section }: { section: UiSection }) {
-  const [toastOpen, setToastOpen] = useState(false)
-  const [tab, setTab] = useState<"account" | "password">("account")
   const [sortAsc, setSortAsc] = useState(true)
   const [page, setPage] = useState(1)
   const [progress, setProgress] = useState(60)
@@ -70,43 +71,39 @@ export default function UiComponentsPage({ section }: { section: UiSection }) {
         {section === "badges" && (
           <SectionCard title="Badges">
             <div className="flex flex-wrap gap-2">
-              <span className="rounded-full bg-primary px-3 py-1 text-xs text-primary-foreground">Default</span>
-              <span className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">Secondary</span>
-              <span className="rounded-full bg-destructive px-3 py-1 text-xs text-destructive-foreground">Destructive</span>
-              <span className="rounded-full border px-3 py-1 text-xs">Outline</span>
+              <Badge>Default</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="destructive">Destructive</Badge>
+              <Badge variant="outline">Outline</Badge>
             </div>
           </SectionCard>
         )}
         {section === "toast" && (
           <SectionCard title="Toast">
-            <Button
-              onClick={() => {
-                setToastOpen(true)
-                window.setTimeout(() => setToastOpen(false), 2500)
-              }}
-            >
+            <Button onClick={() => toast.success("Saved successfully", { description: "Your changes are now updated." })}>
               Show Toast
             </Button>
-            {toastOpen && (
-              <div className="mt-4 rounded-md border bg-card p-3 text-sm shadow">
-                <p className="font-medium">Saved successfully</p>
-                <p className="text-muted-foreground">Your changes are now updated.</p>
-              </div>
-            )}
           </SectionCard>
         )}
 
         {section === "tabs" && (
           <SectionCard title="Tabs">
-            <div className="space-y-4">
-              <div className="inline-flex rounded-md border p-1">
-                <Button variant={tab === "account" ? "default" : "ghost"} size="sm" onClick={() => setTab("account")}>Account</Button>
-                <Button variant={tab === "password" ? "default" : "ghost"} size="sm" onClick={() => setTab("password")}>Password</Button>
-              </div>
-              <div className="rounded-md border p-4 text-sm text-muted-foreground">
-                {tab === "account" ? "Update your account details." : "Change your password settings."}
-              </div>
-            </div>
+            <Tabs defaultValue="account">
+              <TabsList>
+                <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsTrigger value="password">Password</TabsTrigger>
+              </TabsList>
+              <TabsContent value="account">
+                <div className="rounded-md border p-4 text-sm text-muted-foreground">
+                  Update your account details.
+                </div>
+              </TabsContent>
+              <TabsContent value="password">
+                <div className="rounded-md border p-4 text-sm text-muted-foreground">
+                  Change your password settings.
+                </div>
+              </TabsContent>
+            </Tabs>
           </SectionCard>
         )}
 

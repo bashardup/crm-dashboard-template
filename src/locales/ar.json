@@ -36,7 +36,12 @@
     "toggle": "التبديل",
     "switch": "المفتاح",
     "textEditor": "محرر النص",
-    "hugeIcons": "HugeIcons"
+    "hugeIcons": "HugeIcons",
+    "pages": "الصفحات",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "emailTemplates": "قوالب البريد",
+    "lottieIcons": "أيقونات Lottie"
   },
   "layout": {
     "searchProducts": "ابحث عن المنتجات..."
