@@ -16,36 +16,15 @@ import {
   SidebarHeader,
   SidebarProvider,
 } from "@/components/ui/sidebar"
-import { ProgressTracker, type ProgressStep } from "@/components/ui/progress-tracker"
+import { ProgressTracker, ProgressTrackerItem, ProgressTrackerHeader, ProgressTrackerContent } from "@/components/ui/progress-tracker"
+import type { StepStatus } from "@/components/ui/progress-tracker"
 import { useBreadcrumb, useHeaderAction } from "@/components/breadcrumb-context"
 
-const steps: ProgressStep[] = [
-  {
-    title: "Submitted",
-    status: "completed",
-    statusLabel: "Completed",
-    description: "12:34:55 • 05/12/2024",
-  },
-  {
-    title: "Under review",
-    status: "in-progress",
-    statusLabel: "Payment required",
-    description: "12:34:55 • 05/12/2024",
-    action: (
-      <Button size="sm" variant="outline" className="gap-1.5">
-        <MessageSquare className="size-3.5" />
-        Inquire
-      </Button>
-    ),
-  },
-  {
-    title: "Payment",
-    status: "pending",
-  },
-  {
-    title: "Decision",
-    status: "pending",
-  },
+const steps: { title: string; status: StepStatus; statusLabel?: string; description?: string }[] = [
+  { title: "Submitted",    status: "completed",   statusLabel: "Completed",        description: "12:34:55 • 05/12/2024" },
+  { title: "Under review", status: "in-progress", statusLabel: "Payment required", description: "12:34:55 • 05/12/2024" },
+  { title: "Payment",      status: "pending" },
+  { title: "Decision",     status: "pending" },
 ]
 
 export default function InquiryDetailPage() {
@@ -99,7 +78,34 @@ export default function InquiryDetailPage() {
         </div>
 
         <div className="relative">
-          <ProgressTracker steps={steps} />
+          <ProgressTracker>
+            {steps.map((step, i) => (
+              <ProgressTrackerItem
+                key={i}
+                status={step.status}
+                title={step.title}
+                statusLabel={step.statusLabel}
+                description={step.description}
+              >
+                {step.status === "in-progress" && (
+                  <ProgressTrackerHeader>
+                    <Button size="sm" variant="outline" className="gap-1.5">
+                      <MessageSquare className="size-3.5" />
+                      Inquire
+                    </Button>
+                  </ProgressTrackerHeader>
+                )}
+{/* 
+                <ProgressTrackerContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    This service allows the Business Sector to request the disposal of expired explosives,
+                    ammunition, and fireworks in an official and safe manner.{" "}
+                    <button className="text-primary font-medium hover:underline">more</button>
+                  </p>
+                </ProgressTrackerContent> */}
+              </ProgressTrackerItem>
+            ))}
+          </ProgressTracker>
         </div>
       </div>
   
