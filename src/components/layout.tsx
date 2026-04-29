@@ -1,12 +1,21 @@
 import { SidebarProvider } from "@/components/ui/sidebar"
 import React from "react"
 import { AppSidebar } from "./app-sidebar"
-import { Input } from "./ui/input"
-import { Search } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { ThemeProvider } from "./theme-provider"
 import { ModeToggle } from "./menu-toggle"
 import { useTranslation } from "react-i18next"
+import { BreadcrumbProvider, useBreadcrumbSlot } from "./breadcrumb-context"
+
+function HeaderBreadcrumb() {
+  const { breadcrumb } = useBreadcrumbSlot()
+  return <>{breadcrumb}</>
+}
+
+function HeaderAction() {
+  const { headerAction } = useBreadcrumbSlot()
+  return <>{headerAction}</>
+}
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const { i18n, t } = useTranslation()
@@ -19,13 +28,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" >
-            <SidebarProvider className="bg-secondary-10 dark:bg-black">
+            <BreadcrumbProvider>
+            <SidebarProvider className="bg-secondary-10 dark:bg-black dark:bg-[linear-gradient(150deg,#016C56_-40%,transparent_40%)]">
                 <AppSidebar />
                 <main className="w-full">
-                    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+                    <header className="flex h-14 items-center gap-4 border-b px-4 lg:h-[60px] lg:px-6">
                         <div className="w-full flex-1">
-                         
+                          <HeaderBreadcrumb />
                         </div>
+                        <HeaderAction />
                         <select
                             aria-label={t("common.language")}
                             value={i18n.language === "ar" ? "ar" : "en"}
@@ -46,6 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </div>
                 </main>
             </SidebarProvider>
+            </BreadcrumbProvider>
         </ThemeProvider>
     )
 }

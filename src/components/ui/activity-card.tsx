@@ -2,8 +2,14 @@ import * as React from "react"
 import { useLottie } from "lottie-react"
 import { cn } from "@/lib/utils"
 
-function LottieView({ animationData }: { animationData: object }) {
-  const { View } = useLottie({ animationData, loop: true, autoplay: true, style: { width: "100%", height: "100%" } })
+function LottieView({ animationData, playing }: { animationData: object; playing: boolean }) {
+  const { View, play, stop } = useLottie({ animationData, loop: true, autoplay: false, style: { width: "100%", height: "100%" } })
+
+  React.useEffect(() => {
+    if (playing) play()
+    else stop()
+  }, [playing, play, stop])
+
   return <>{View}</>
 }
 
@@ -22,9 +28,15 @@ function ActivityCard({
   lottieId,
   ...props
 }: ActivityCardProps) {
+  const [hovered, setHovered] = React.useState(false)
+
   return (
-    <div className="relative transition-transform duration-300 ease-custom-ease hover:md:-translate-y-2 will-change-transform">
-      <span className="absolute top-0 right-0 translate-x-px -translate-y-[1px]  w-[calc(100%+2px)] h-[calc(100%+2px)] bg-[linear-gradient(154deg,#ffffff6e,transparent,#ffffff6e)] rounded-3xl md:rounded-[32px] "></span>
+    <div
+      className="relative transition-transform duration-300 ease-custom-ease hover:md:-translate-y-2 will-change-transform"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <span className={cn("absolute top-0 right-0 translate-x-px -translate-y-px w-[calc(100%+2px)] h-[calc(100%+2px)] bg-[linear-gradient(154deg,#ffffff6e,transparent,#ffffff6e)] rounded-3xl md:rounded-[32px]", hovered && "border-gradient-animated")}></span>
 
     <div
       data-slot="activity-card"
@@ -52,10 +64,10 @@ function ActivityCard({
       </div>
 
       <div className="flex-col-full w-full order-1 md:order-2">
-        <div className="w-[80%] md:w-full max-w-[160px] mx-auto">
-          <div className="aspect-square scale-125 relative translate-y-2">
+        <div className="w-[80%] md:w-full max-w-[140px] ms-auto">
+          <div className="aspect-square scale-[1.3] relative translate-y-2">
             {lottieId ? (
-              <LottieView animationData={lottieId} />
+              <LottieView animationData={lottieId} playing={hovered} />
             ) : icon ? (
               <img
                 src={icon.src}

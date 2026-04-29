@@ -20,6 +20,14 @@ const badgeVariants = cva(
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
       },
+      size: {
+        default: "rounded-[32px] active:rounded-[12px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[48px] md:h-14 px-6 md:px-6 py-4 md:py-4 gap-2  ",
+        sm: "rounded-[8px] active:rounded-[4px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[32px] px-4 text-xs",
+        md: " rounded-[12px] active:rounded-[8px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[40px]  px-4 text-xs",
+        // lg: "before:translate-x-[100%] active:before:translate-x-[30%]  h-14 rounded-md px-8",
+        icon: "rounded-[16px] active:rounded-[12px] before:translate-x-[0%] active:before:translate-x-[0%]  size-11 md:size-14",
+        "icon-sm": "rounded-[8px] active:rounded-[4px] before:translate-x-[0%] active:before:translate-x-[0%] size-8",
+      },
     },
     defaultVariants: {
       variant: "default",

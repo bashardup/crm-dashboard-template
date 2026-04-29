@@ -23,6 +23,7 @@ import { Switch } from "@/components/ui/switch"
 import { Textarea } from "@/components/ui/textarea"
 import { Toggle } from "@/components/ui/toggle"
 import { cn } from "@/lib/utils"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 
 type FormSection =
   | "form"
@@ -94,6 +95,14 @@ export default function FormsPage({ section }: { section: FormSection }) {
                 <Input placeholder="Email address" />
                 <Input placeholder="Disabled" disabled />
               </div>
+
+
+              <InputGroup>
+  <InputGroupInput placeholder="Search..." />
+  <InputGroupAddon> 
+dfg
+  </InputGroupAddon>
+</InputGroup>
 
               {/* Password */}
               <div className="space-y-2">

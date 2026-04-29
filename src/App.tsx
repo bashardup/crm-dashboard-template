@@ -13,6 +13,8 @@ import SignupPage from "./pages/signup-page"
 import NotFoundPage from "./pages/not-found-page"
 import EmailTemplatesPage from "./pages/email-templates-page"
 import LottieIconsPage from "./pages/lottie-icons-page"
+import ServicesListingPage from "./pages/services-listing-page"
+import InquiryDetailPage from "./pages/inquiry-detail-page"
 
 export default function App() {
   return (
@@ -46,6 +48,7 @@ export default function App() {
               <Route path="/ui/breadcrumb" element={<UiComponentsPage section="breadcrumb" />} />
               <Route path="/ui/navigation-menu" element={<UiComponentsPage section="navigation-menu" />} />
               <Route path="/ui/alert" element={<UiComponentsPage section="alert" />} />
+              <Route path="/ui/profile-switcher" element={<UiComponentsPage section="profile-switcher" />} />
               <Route path="/forms/form" element={<FormsPage section="form" />} />
               <Route path="/forms/input" element={<FormsPage section="input" />} />
               <Route path="/forms/select" element={<FormsPage section="select" />} />
@@ -61,6 +64,8 @@ export default function App() {
               <Route path="/icons/huge-icons" element={<IconsPage />} />
               <Route path="/email-templates" element={<EmailTemplatesPage />} />
               <Route path="/lottie-icons" element={<LottieIconsPage />} />
+              <Route path="/services" element={<ServicesListingPage />} />
+              <Route path="/services/inquiry" element={<InquiryDetailPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Layout>

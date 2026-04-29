@@ -22,7 +22,7 @@ const SelectTrigger = React.forwardRef<
     data-size={size}
     className={cn(
       "flex w-full items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent px-2.5 py-2 text-sm whitespace-nowrap transition-colors outline-none focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground [&>span]:line-clamp-1",
-      size === "default" ? "h-8" : "h-7",
+      size === "default" ? "h-14" : "h-7",
       className
     )}
     {...props}

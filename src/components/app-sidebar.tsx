@@ -61,6 +61,7 @@ const sections = [
       { titleKey: "sidebar.breadcrumb", url: "/ui/breadcrumb", icon: LayoutGrid },
       { titleKey: "sidebar.navigationMenu", url: "/ui/navigation-menu", icon: Home },
       { titleKey: "sidebar.alert", url: "/ui/alert", icon: AlertTriangle },
+      { titleKey: "sidebar.profileSwitcher", url: "/ui/profile-switcher", icon: UserPlus },
     ],
   },
   {
@@ -91,6 +92,7 @@ const sections = [
       { titleKey: "sidebar.signup", url: "/signup", icon: UserPlus },
       { titleKey: "sidebar.emailTemplates", url: "/email-templates", icon: Mail },
       { titleKey: "sidebar.lottieIcons", url: "/lottie-icons", icon: Sparkles },
+      { titleKey: "sidebar.services", url: "/services", icon: LayoutGrid },
     ],
   },
 ]

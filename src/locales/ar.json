@@ -41,7 +41,9 @@
     "login": "تسجيل الدخول",
     "signup": "إنشاء حساب",
     "emailTemplates": "قوالب البريد",
-    "lottieIcons": "أيقونات Lottie"
+    "lottieIcons": "أيقونات Lottie",
+    "profileSwitcher": "محدد الملف الشخصي",
+    "services": "قائمة الخدمات"
   },
   "layout": {
     "searchProducts": "ابحث عن المنتجات..."

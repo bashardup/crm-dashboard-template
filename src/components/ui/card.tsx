@@ -8,15 +8,19 @@ function Card({
   ...props
 }: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
   return (
-    <div
-      data-slot="card"
-      data-size={size}
-      className={cn(
-        "rounded-[32px] dark:shadow-[#0000000d_0px_0px_10px_0px_inset] shadow-[-2px_3px_9px_0px_rgba(230,239,235,1.00)] group/card flex flex-col gap-4 overflow-hidden bg-card py-4 text-sm text-card-foreground has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
-        className
-      )}
-      {...props}
-    />
+    <div className="relative">
+      <span className="absolute top-0 right-0 translate-x-px -translate-y-[1px]  w-[calc(100%+4px)] h-[calc(100%+4px)] bg-[linear-gradient(154deg,#ffffff6e,transparent,#ffffff6e)] rounded-3xl md:rounded-[32px] "></span>
+
+      <div
+        data-slot="card"
+        data-size={size}
+        className={cn(
+          "rounded-[32px] relative z-10 bg-white dark:bg-zinc-900  dark:shadow-[-2px_3px_9px_0px_rgba(0,0,0,1.00)] group/card flex flex-col gap-4 overflow-hidden py-8 text-sm text-card-foreground has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-6 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+          className
+        )}
+        {...props}
+      />
+    </div>
   )
 }
 
@@ -73,7 +77,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-4 group-data-[size=sm]/card:px-3", className)}
+      className={cn("px-8 group-data-[size=sm]/card:px-6", className)}
       {...props}
     />
   )
@@ -84,7 +88,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-xl border-t bg-muted/50 p-4 group-data-[size=sm]/card:p-3",
+        "flex items-center rounded-b-xl border-t bg-muted/50 p-8 group-data-[size=sm]/card:p-6",
         className
       )}
       {...props}

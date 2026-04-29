@@ -41,7 +41,9 @@
     "login": "Login",
     "signup": "Sign Up",
     "emailTemplates": "Email Templates",
-    "lottieIcons": "Lottie Icons"
+    "lottieIcons": "Lottie Icons",
+    "profileSwitcher": "Profile Switcher",
+    "services": "Services Listing"
   },
   "layout": {
     "searchProducts": "Search products..."

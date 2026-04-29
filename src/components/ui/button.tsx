@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "relative overflow-hidden inline-flex gap-2 items-center  font-medium justify-center whitespace-nowrap  text-sm ring-offset-background transition-all ease-custom-ease duration-300  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 disabled:text-[#121212] disabled:bg-[#DEDEE1]   active:before:opacity-100 active:before:bg-black/10  active:before:translate-y-[60%] before:absolute before:inset-0 before:bg-[#4A4459] before:bg-opacity-10  before:rounded-[100%] before:pointer-events-none before:opacity-0 before:translate-y-full before:scale-x-[150%] before:scale-y-[140%] before:transition-all before:duration-300 active:before:duration-300  ",
+  "relative font-mono font-bold overflow-hidden inline-flex gap-2 items-center justify-center whitespace-nowrap  text-sm ring-offset-background transition-all ease-custom-ease duration-300  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 disabled:text-[#121212] disabled:bg-[#DEDEE1]   active:before:opacity-100 active:before:bg-black/10  active:before:translate-y-[60%] before:absolute before:inset-0 before:bg-[#4A4459] before:bg-opacity-10  before:rounded-[100%] before:pointer-events-none before:opacity-0 before:translate-y-full before:scale-x-[150%] before:scale-y-[140%] before:transition-all before:duration-300 active:before:duration-300  ",
   {
     variants: {
       variant: {
@@ -17,10 +17,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "bg-[#EBEBEC] text-[#4B4C4D] md:hover:bg-[#4A445914] hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        tonal: "text-primary bg-[#D9EDE6] hover:bg-[#c4dfd5] ",
+        tonal: "text-primary dark:text-white bg-[#D9EDE6] dark:bg-emerald-900/30 hover:bg-[#c4dfd5] dark:hover:bg-emerald-900/50 ",
       },
       size: {
-        default: "rounded-[16px] active:rounded-[12px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[48px] md:h-14 px-6 md:px-6 py-4 md:py-4 gap-2  ",
+        default: "rounded-[32px] active:rounded-[12px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[48px] md:h-14 px-6 md:px-6 py-4 md:py-4 gap-2  ",
         sm: "rounded-[8px] active:rounded-[4px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[32px] px-4 text-xs",
         md: " rounded-[12px] active:rounded-[8px] before:translate-x-[100%] active:before:translate-x-[30%]  h-[40px]  px-4 text-xs",
         // lg: "before:translate-x-[100%] active:before:translate-x-[30%]  h-14 rounded-md px-8",
