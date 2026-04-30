@@ -62,6 +62,7 @@ const sections = [
       { titleKey: "sidebar.navigationMenu", url: "/ui/navigation-menu", icon: Home },
       { titleKey: "sidebar.alert", url: "/ui/alert", icon: AlertTriangle },
       { titleKey: "sidebar.profileSwitcher", url: "/ui/profile-switcher", icon: UserPlus },
+      { titleKey: "sidebar.stepper", url: "/ui/stepper", icon: ListOrdered },
     ],
   },
   {
@@ -122,7 +123,7 @@ export function AppSidebar() {
             />
           </NavLink>
         </div>
-        <SidebarTrigger className="m-4 " />
+        <SidebarTrigger className="m-4 bg-transparent text-white" />
       </SidebarHeader>
       <SidebarContent>
         {sections.map((section) => (

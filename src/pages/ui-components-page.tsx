@@ -15,6 +15,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { ProfileSwitcher, type ProfileSwitcherOption } from "@/components/ui/profile-switcher"
+import { Stepper } from "@/components/ui/stepper"
 
 type UiSection =
   | "badges"
@@ -30,6 +31,7 @@ type UiSection =
   | "navigation-menu"
   | "alert"
   | "profile-switcher"
+  | "stepper"
 
 const profileOptions: ProfileSwitcherOption[] = [
   { value: "personal", label: "Personal Account", description: "Account type", icon: "" },
@@ -355,6 +357,43 @@ export default function UiComponentsPage({ section }: { section: UiSection }) {
                   <p className="font-medium text-destructive">Warning</p>
                   <p className="text-sm text-muted-foreground">This is a destructive alert variant.</p>
                 </div>
+              </div>
+            </div>
+          </SectionCard>
+        )}
+
+        {section === "stepper" && (
+          <SectionCard title="Stepper">
+            <div className="flex flex-col gap-8">
+              <div>
+                <p className="text-xs text-muted-foreground mb-4">Active on step 2</p>
+                <Stepper
+                  steps={[
+                    { title: "Visit Details", status: "completed" },
+                    { title: "Review", status: "active" },
+                    { title: "Confirm", status: "pending" },
+                  ]}
+                />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground mb-4">All completed</p>
+                <Stepper
+                  steps={[
+                    { title: "Visit Details", status: "completed" },
+                    { title: "Review", status: "completed" },
+                    { title: "Confirm", status: "completed" },
+                  ]}
+                />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground mb-4">First step active</p>
+                <Stepper
+                  steps={[
+                    { title: "Visit Details", status: "active" },
+                    { title: "Review", status: "pending" },
+                    { title: "Confirm", status: "pending" },
+                  ]}
+                />
               </div>
             </div>
           </SectionCard>

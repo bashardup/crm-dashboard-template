@@ -49,6 +49,7 @@ export default function App() {
               <Route path="/ui/navigation-menu" element={<UiComponentsPage section="navigation-menu" />} />
               <Route path="/ui/alert" element={<UiComponentsPage section="alert" />} />
               <Route path="/ui/profile-switcher" element={<UiComponentsPage section="profile-switcher" />} />
+              <Route path="/ui/stepper" element={<UiComponentsPage section="stepper" />} />
               <Route path="/forms/form" element={<FormsPage section="form" />} />
               <Route path="/forms/input" element={<FormsPage section="input" />} />
               <Route path="/forms/select" element={<FormsPage section="select" />} />

@@ -6,6 +6,7 @@ import { ThemeProvider } from "./theme-provider"
 import { ModeToggle } from "./menu-toggle"
 import { useTranslation } from "react-i18next"
 import { BreadcrumbProvider, useBreadcrumbSlot } from "./breadcrumb-context"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup } from "./ui/select"
 
 function HeaderBreadcrumb() {
   const { breadcrumb } = useBreadcrumbSlot()
@@ -20,10 +21,9 @@ function HeaderAction() {
 export default function Layout({ children }: { children: React.ReactNode }) {
     const { i18n, t } = useTranslation()
 
-    const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedLanguage = event.target.value === "ar" ? "ar" : "en"
-        i18n.changeLanguage(selectedLanguage)
-        localStorage.setItem("app-language", selectedLanguage)
+    const handleLanguageChange = (value: string) => {
+        i18n.changeLanguage(value)
+        localStorage.setItem("app-language", value)
     }
 
     return (
@@ -37,14 +37,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                           <HeaderBreadcrumb />
                         </div>
                         <HeaderAction />
-                        <select
-                            aria-label={t("common.language")}
-                            value={i18n.language === "ar" ? "ar" : "en"}
-                            onChange={handleLanguageChange}
-                            className="h-9 rounded-md border bg-background px-3 text-sm" >
-                              <option value="en">{t("common.english")}</option>
-                              <option value="ar">{t("common.arabic")}</option>
-                        </select>
+                        <Select value={i18n.language === "ar" ? "ar" : "en"} onValueChange={handleLanguageChange}>
+                          <SelectTrigger size="sm" className="w-28">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectGroup>
+                              <SelectItem value="en">{t("common.english")}</SelectItem>
+                              <SelectItem value="ar">{t("common.arabic")}</SelectItem>
+                            </SelectGroup>
+                          </SelectContent>
+                        </Select>
                         <Avatar>
                             <AvatarImage src="https://github.com/shadcn.png" />
                             <AvatarFallback>CN</AvatarFallback>

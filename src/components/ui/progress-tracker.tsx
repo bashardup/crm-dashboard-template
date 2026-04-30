@@ -55,21 +55,21 @@ function ProgressTrackerItem({
       )}
     >
       {/* Radial gradient decor */}
-      <span className="pointer-events-none absolute top-0 left-0 h-full w-1/2 bg-[linear-gradient(171deg,#26D07C33_-10%,transparent_50%)]" />
+      <span className="pointer-events-none absolute top-0 left-0 h-full w-1/2 dark:bg-[linear-gradient(171deg,#26D07C33_-10%,transparent_50%)]" />
 
       {/* ── Dot + line col — spans both rows so line covers content area too ── */}
       <div className="row-span-2 col-start-1 flex flex-col items-center justify-center self-stretch z-10 w-3">
         {/* Line: top half */}
         <div className={cn(
           "w-px flex-1",
-          isFirst ? "opacity-0" : "bg-white/10",
+          isFirst ? "opacity-0" : "bg-black/10 dark:bg-white/10",
         )} />
         {/* Dot */}
         <div className={cn("size-3 rounded-full border-2 shrink-0", statusStyles[status].dot)} />
         {/* Line: bottom half */}
         <div className={cn(
           "w-px flex-1",
-          isLast ? "opacity-0" : "bg-white/10",
+          isLast ? "opacity-0" : "bg-black/10 dark:bg-white/10",
         )} />
       </div>
 
