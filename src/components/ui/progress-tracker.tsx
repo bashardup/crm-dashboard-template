@@ -47,33 +47,26 @@ function ProgressTrackerItem({
     <div
       data-slot="progress-tracker-item"
       className={cn(
-        // 2-col grid by default; adds 3rd col (action) when ProgressTrackerHeader present
         "relative grid grid-cols-[auto_1fr] gap-x-4 px-6",
         "has-data-[slot=progress-tracker-header]:grid-cols-[auto_1fr_auto]",
         "bg-white dark:bg-[#15161E] rounded-3xl border border-[#d9dddb29] overflow-hidden",
         className
       )}
     >
-      {/* Radial gradient decor */}
       <span className="pointer-events-none absolute top-0 left-0 h-full w-1/2 dark:bg-[linear-gradient(171deg,#26D07C33_-10%,transparent_50%)]" />
 
-      {/* ── Dot + line col — spans both rows so line covers content area too ── */}
       <div className="row-span-2 col-start-1 flex flex-col items-center justify-center self-stretch z-10 w-3">
-        {/* Line: top half */}
         <div className={cn(
           "w-px flex-1",
           isFirst ? "opacity-0" : "bg-black/10 dark:bg-white/10",
         )} />
-        {/* Dot */}
         <div className={cn("size-3 rounded-full border-2 shrink-0", statusStyles[status].dot)} />
-        {/* Line: bottom half */}
         <div className={cn(
           "w-px flex-1",
           isLast ? "opacity-0" : "bg-black/10 dark:bg-white/10",
         )} />
       </div>
 
-      {/* ── Title + badge row (col 2, row 1) ── */}
       <div className="col-start-2 row-start-1 flex items-center min-h-[88px] py-5 has-data-[slot=progress-tracker-content]:pb-3 z-10">
         <div className="min-w-0">
           <p className={cn("font-mono font-bold text-sm leading-tight", status === "pending" && "text-muted-foreground")}>
@@ -89,8 +82,6 @@ function ProgressTrackerItem({
           )}
         </div>
       </div>
-
-      {/* Children — ProgressTrackerHeader and ProgressTrackerContent place themselves via data-slot + grid */}
       {children}
     </div>
   )
