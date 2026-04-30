@@ -32,12 +32,17 @@ export default function InquiryDetailPage() {
   const isRtl = useIsRtl()
   useBreadcrumb(
     <div className="flex items-center gap-2">
-      <Button
-        variant="secondary"
-        aria-label="Back button"
-      >
-        <ChevronLeft className="size-4" />
-      </Button>
+      <div>
+        <Button
+          variant="secondary"
+          size="icon-sm"
+
+          className="rounded-4xl"
+          aria-label="Back button"
+        >
+          <ChevronLeft className="size-4" />
+        </Button>
+      </div>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -58,12 +63,13 @@ export default function InquiryDetailPage() {
 
   useHeaderAction(
     <Button
-      variant="ghost"
+      variant="secondary"
       size="icon-sm"
       onClick={() => setOpen((o) => !o)}
+      className="rounded-4xl"
       aria-label="Toggle info panel"
     >
-      <PanelRight className="size-4" />
+      <Info className="size-4" />
     </Button>
   )
 
@@ -97,7 +103,7 @@ export default function InquiryDetailPage() {
                 >
                   {step.status === "in-progress" && (
                     <ProgressTrackerHeader>
-                      <Button size="sm" variant="outline" className="gap-1.5">
+                      <Button size="sm" variant="outline" className="gap-1.5 rounded-[32px]">
                         <MessageSquare className="size-3.5" />
                         Inquire
                       </Button>

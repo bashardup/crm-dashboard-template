@@ -2,6 +2,7 @@ import { useState } from "react"
 import { toast } from "sonner"
 import { Badge } from "@/components/ui/badge"
 import { Info, MoreHorizontal, TriangleAlert } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { DataTable, createSelectColumn, type ColumnDef } from "@/components/ui/data-table"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -16,6 +17,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { ProfileSwitcher, type ProfileSwitcherOption } from "@/components/ui/profile-switcher"
 import { Stepper } from "@/components/ui/stepper"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
 
 type UiSection =
   | "badges"
@@ -318,46 +336,104 @@ export default function UiComponentsPage({ section }: { section: UiSection }) {
 
         {section === "breadcrumb" && (
           <SectionCard title="BreadCrumb">
-            <nav className="text-sm text-muted-foreground">
-              <ol className="flex items-center gap-2">
-                <li>Dashboard</li>
-                <li>/</li>
-                <li>UI Components</li>
-                <li>/</li>
-                <li className="text-foreground">BreadCrumb</li>
-              </ol>
-            </nav>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">UI Components</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>BreadCrumb</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
           </SectionCard>
         )}
 
         {section === "navigation-menu" && (
           <SectionCard title="Navigation Menu">
-            <div className="flex flex-wrap gap-2">
-              <Button variant="outline">Overview</Button>
-              <Button variant="outline">Docs</Button>
-              <Button variant="outline">Components</Button>
-              <Button variant="outline">Support</Button>
-            </div>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="w-80">
+                      <li>
+                        <NavigationMenuLink render={<a href="#" />}>
+                          <div className="flex flex-col gap-1">
+                            <div className="font-medium leading-none">Introduction</div>
+                            <div className="line-clamp-2 text-muted-foreground text-sm">Re-usable components built with Tailwind CSS.</div>
+                          </div>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink render={<a href="#" />}>
+                          <div className="flex flex-col gap-1">
+                            <div className="font-medium leading-none">Installation</div>
+                            <div className="line-clamp-2 text-muted-foreground text-sm">How to install dependencies and structure your app.</div>
+                          </div>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink render={<a href="#" />}>
+                          <div className="flex flex-col gap-1">
+                            <div className="font-medium leading-none">Typography</div>
+                            <div className="line-clamp-2 text-muted-foreground text-sm">Styles for headings, paragraphs, lists and more.</div>
+                          </div>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-2 md:grid-cols-2">
+                      {[
+                        { title: "Alert Dialog", desc: "A modal dialog that interrupts the user with important content." },
+                        { title: "Hover Card", desc: "For sighted users to preview content available behind a link." },
+                        { title: "Progress", desc: "Displays an indicator showing the completion progress of a task." },
+                        { title: "Tabs", desc: "A set of layered sections of content displayed one at a time." },
+                      ].map((c) => (
+                        <li key={c.title}>
+                          <NavigationMenuLink render={<a href="#" />}>
+                            <div className="flex flex-col gap-1">
+                              <div className="font-medium leading-none">{c.title}</div>
+                              <div className="line-clamp-2 text-muted-foreground text-sm">{c.desc}</div>
+                            </div>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink render={<a href="#" />} className={navigationMenuTriggerStyle()}>
+                    Documentation
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </SectionCard>
         )}
 
         {section === "alert" && (
           <SectionCard title="Alert">
-            <div className="space-y-3">
-              <div className="flex items-start gap-2 rounded-md border p-3">
-                <Info className="mt-0.5 h-4 w-4 text-primary" />
-                <div>
-                  <p className="font-medium">Information</p>
-                  <p className="text-sm text-muted-foreground">This is an informative alert.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 rounded-md border border-destructive/30 bg-destructive/10 p-3">
-                <TriangleAlert className="mt-0.5 h-4 w-4 text-destructive" />
-                <div>
-                  <p className="font-medium text-destructive">Warning</p>
-                  <p className="text-sm text-muted-foreground">This is a destructive alert variant.</p>
-                </div>
-              </div>
+            <div className="flex flex-col gap-3">
+              <Alert>
+                <Info />
+                <AlertTitle>Information</AlertTitle>
+                <AlertDescription>This is an informative alert.</AlertDescription>
+              </Alert>
+              <Alert variant="destructive">
+                <TriangleAlert />
+                <AlertTitle>Warning</AlertTitle>
+                <AlertDescription>This is a destructive alert variant.</AlertDescription>
+              </Alert>
             </div>
           </SectionCard>
         )}
